@@ -1,0 +1,157 @@
+// variables de colores:
+$ColorCard: rgb(194, 192, 99);
+$ColorLinks: #000;
+$ColorDivImagen: #f2f2f2;
+$ColorPosicion: #2c2d88;
+//Anidacion:
+
+.divContainer {
+  font-family: "Flexo-Medium", arial, sans-serif;
+
+  p {
+    color: #919191;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 125%;
+    margin: 0.5em 0;
+  }
+
+  h5 {
+    font-size: 125%;
+    line-height: 125%;
+    margin: 0.5em 0;
+  }
+  a {
+    text-decoration: none;
+    color: $ColorLinks;
+    font-size: 25px;
+  }
+
+  img {
+    width: 150px;
+    height: 200px;
+    border-radius: 5px;
+  }
+  .ContainerTypesDB {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+
+    .DivTypes {
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      width: fit-content;
+      border-radius: 5px;
+      height: fit-content;
+      margin: 10px;
+    }
+  }
+  .ContainerTypes {
+    display: flex;
+    .DivTypes {
+      color: #fff;
+      padding: 10px 30px;
+      border: none;
+      width: fit-content;
+      border-radius: 5px;
+      height: fit-content;
+      margin: 10px;
+    }
+  }
+}
+.DivCentrador {
+  display: flex;
+  justify-content: center;
+  // background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.divfiltros {
+  width: 30px;
+  height: 30px;
+}
+
+.divImagenDB {
+  background-color: $ColorDivImagen;
+  padding: 10px 35px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.divImagen {
+  background-color: $ColorDivImagen;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.ContenedorPadre {
+  display: flex;
+  flex-wrap: wrap;
+  width: 55%;
+  padding-left: 150px;
+  height: 1000%;
+  background-color: #fff;
+  a {
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  a:hover {
+    transform: scale(1.1); /*Es la escala o el tamaño del contenido*/
+    transition: transform 0.3s ease-in-out; /*Se crece gradualmente la imagen o el contenido con un determinado tiempo*/
+  }
+}
+
+.ContenedorAbuelo {
+  margin-top: 130px;
+  height: 1000%;
+  .ContainerPadreDelSearchYfiltros {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .ContainerBusquedaFiltro {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    padding: 20px 20px;
+    margin-bottom: 70px;
+    img {
+      height: 50px;
+      width: 100px;
+    }
+  }
+}
+
+//mixin:
+@mixin Card_Personalizada($ColorBorde: gray) {
+  // background-color: $ColorCard;
+  width: fit-content;
+  padding: 20px 20px;
+  margin: 5px;
+
+  // border: $ColorBorde solid;
+} // creamos una caja personalizada con determinados atributos... y lo podemos utilizar en muchos otros componentes.
+
+.divContainer {
+  @include Card_Personalizada();
+}
+
+@media (max-width: 768px) {
+  .DivCentrador {
+    width: 100%;
+    .ContenedorPadre {
+      align-items: center;
+      width: fit-content;
+    }
+    .divContainer {
+      margin-right: 150px;
+    }
+  }
+}

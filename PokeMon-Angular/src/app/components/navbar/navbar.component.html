@@ -1,0 +1,16 @@
+<div class="ContainerSpan" (click)="toggleMenu()">
+  <i [ngClass]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+</div>
+<nav>
+  <div [ngClass]="isMenuOpen ? 'salida' : 'escondida'">
+    <a (click)="OnClick()" routerLink="/Form"> Inicia Sesion</a>
+    <a (click)="OnClick()" routerLink="/home">Home</a>
+    <a (click)="OnClick()" routerLink="/Perfil">Perfil</a>
+    <a (click)="OnClick()" routerLink="/FormCreatePokemon">Crear Pokemon</a>
+  </div>
+</nav>
+
+<!-- <div
+class={`nav_toggle ${stateMenu && "open"}`}
+onClick={() => setStateMenu(!stateMenu)}
+> -->

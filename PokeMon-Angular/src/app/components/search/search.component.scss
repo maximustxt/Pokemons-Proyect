@@ -1,0 +1,72 @@
+$ColorBoton: #006d77;
+$ColorBotonHover: #83c5be;
+$ColoInput: #fff;
+
+div {
+  input {
+    width: 250px;
+    padding: 10px 20px;
+    background-color: $ColoInput;
+    border-radius: 20px;
+  }
+  button {
+    padding: 13px 20px;
+    margin-left: 10px;
+    background-color: $ColorBoton;
+    border-radius: 20px;
+    border: none;
+
+    width: 100px;
+    color: aliceblue;
+    font-size: 15px;
+  }
+
+  button:hover {
+    background-color: $ColorBotonHover;
+  }
+}
+
+.ContainerPadreDelSearchYfiltros {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+  .ContainerBusquedaFiltro {
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    img {
+      width: 20px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .ContainerBusquedaFiltro {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+    height: 300px;
+    padding: 10px 10px;
+    img {
+      width: 20px;
+    }
+    a {
+      width: 45px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .DivContainerSearch {
+    display: flex;
+    justify-content: center;
+    input {
+      width: 150px;
+    }
+    button {
+      width: fit-content;
+    }
+  }
+}

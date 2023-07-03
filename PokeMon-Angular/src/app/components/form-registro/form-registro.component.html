@@ -1,0 +1,126 @@
+<div class="DivCentrador">
+  <div class="ContainerForm" style="text-align: center">
+    <ng-container>
+      <div style="margin-bottom: 50px">
+        <h1 style="color: #000; margin-top: 200px">Registrate</h1>
+        <img
+          style="height: 150px"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/26.svg"
+        />
+      </div>
+      <section
+        style="
+          display: flex;
+          justify-content: center;
+          margin-bottom: 200px;
+          height: 600px;
+        "
+      >
+        <Form
+          [formGroup]="FormRegistro"
+          data-aos="zoom-in-right"
+          (ngSubmit)="PostRegistro($event)"
+          class="FormStyles"
+        >
+          <section
+            style="display: flex; flex-direction: column; align-items: center"
+          >
+            <div>
+              <label for="name">Name </label>
+              <input formControlName="name" id="name" placeholder="Name.." />
+            </div>
+            <!------------------------------------Errores---------------------------------------->
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['name'].hasError('required')"
+            >
+              El campo Name es requerido.
+            </span>
+            <!-----------------------------------Longitud------------------------------------------->
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['name'].errors?.['minlength']"
+            >
+              El campo Name debe tener <br />
+              al menos
+              {{ FormRegistro.controls["name"].errors?.['minlength'].requiredLength }}
+              caracteres.
+            </span>
+            <!----------------------------------------------------------------------------------->
+            <div>
+              <label for="Email">Email </label>
+              <input
+                formControlName="email"
+                id="Email"
+                placeholder="Email..."
+              />
+            </div>
+            <!------------------------------------Errores---------------------------------------->
+
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['email'].hasError('required')"
+            >
+              El campo Email es requerido</span
+            >
+            <!-------------------------------------Longitud-------------------------------------->
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['email'].errors?.['minlength']"
+            >
+              El campo Email debe tener <br />
+              al menos
+              {{ FormRegistro.controls["email"].errors?.['minlength'].requiredLength }}
+              caracteres.</span
+            >
+
+            <!---------------------------------Validacion Emial--------------------------------->
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['email'].hasError('pattern')  && !FormRegistro.controls['email'].errors?.['minlength']  "
+            >
+              El email es invalido</span
+            >
+            <!----------------------------------------------------------------------------------->
+            <div>
+              <label for="password">password </label>
+              <input
+                style="margin-right: 50px"
+                formControlName="password"
+                id="password"
+                placeholder="Password..."
+              />
+            </div>
+            <!------------------------------------Errores---------------------------------------->
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['password'].hasError('required')"
+            >
+              El campo Password es requerido
+            </span>
+            <!-----------------------------------Longitud---------------------------------------->
+            <span
+              class="spanError"
+              *ngIf="FormRegistro.controls['password'].errors?.['minlength']"
+            >
+              El campo password debe <br />
+              tener al menos
+              {{ FormRegistro.controls["password"].errors?.['minlength'].requiredLength }}
+              <!--requiredLength te devuelve la longitud que quiere que ingreses en la validacion-->
+              caracteres.
+            </span>
+            <!----------------------------------------------------------------------------------->
+          </section>
+          <br />
+          <br />
+          <div style="width: 100%; display: flex; justify-content: center">
+            <button type="submit" class="BotonSesion">Submit</button>
+            <a routerLink="/Form">
+              <button class="BotonRegistrar">!Iniciar Sesion!</button>
+            </a>
+          </div>
+        </Form>
+      </section>
+    </ng-container>
+  </div>
+</div>

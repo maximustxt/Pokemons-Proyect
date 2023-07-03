@@ -1,0 +1,50 @@
+{
+  "name": "poke-mon-angular",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.0.0",
+    "@angular/common": "^16.0.0",
+    "@angular/compiler": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/forms": "^16.0.0",
+    "@angular/platform-browser": "^16.0.0",
+    "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/router": "^16.0.0",
+    "@cloudinary/angular": "^1.0.0-beta.14",
+    "@cloudinary/ng": "^2.0.0",
+    "@cloudinary/url-gen": "^1.10.1",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "aos": "^2.3.4",
+    "ngx-dropzone": "^3.1.0",
+    "rxjs": "~7.8.0",
+    "sweetalert2": "^11.7.12",
+    "tslib": "^2.3.0",
+    "uuid": "^9.0.0",
+    "uuid-validate": "^0.0.3",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.0.5",
+    "@angular/cli": "~16.0.5",
+    "@angular/compiler-cli": "^16.0.0",
+    "@types/aos": "^3.0.4",
+    "@types/jasmine": "~4.3.0",
+    "@types/uuid": "^9.0.2",
+    "@types/uuid-validate": "^0.0.1",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~5.0.2"
+  }
+}

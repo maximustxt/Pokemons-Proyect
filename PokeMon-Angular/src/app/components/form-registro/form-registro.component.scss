@@ -1,0 +1,120 @@
+.DivCentrador {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 180vh;
+  display: flex;
+  width: 210vh;
+  justify-content: center;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
+  .ContainerForm {
+    background-color: #fff;
+    width: 60%;
+    height: 100%;
+  }
+  Form {
+    width: 50%;
+    height: fit-content;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 20px;
+    background-color: #f2f2f2;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    div {
+      display: flex;
+      margin-bottom: 30px;
+      height: 50px;
+    }
+    .BotonSesion {
+      padding: 20px 20px;
+      background-color: #4dad5b;
+      border: none;
+      border-radius: 10px;
+      font-size: 100%;
+      width: 150px;
+      color: #fff;
+    }
+    .BotonSesion:hover {
+      background-color: #509b5b;
+    }
+
+    .BotonRegistrar {
+      margin-left: 10px;
+      height: 50px;
+      padding: 20px 20px;
+      background-color: #30a7d7;
+      border: none;
+      border-radius: 10px;
+      font-size: 100%;
+      width: 150px;
+      color: #fff;
+    }
+
+    .BotonRegistrar:hover {
+      background-color: #3392b8;
+    }
+  }
+
+  Form {
+    input {
+      border: none;
+      color: rgb(255, 255, 255);
+      background-color: #313131;
+      padding: 20px 20px;
+      width: 200px;
+      border: none;
+      border-radius: 10px;
+      margin: 20px;
+    }
+    label {
+      font-size: 20px;
+      .divInput {
+        background-color: #3392b8;
+      }
+    }
+    .spanError {
+      color: red;
+      margin-left: 55px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .DivCentrador {
+    position: none;
+    width: 100%;
+    height: 100%;
+    .ContainerForm {
+      width: 100%;
+      height: 100%;
+    }
+    .FormStyles {
+      width: 100%;
+      margin: 10px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .DivCentrador {
+    background-image: none;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    .ContainerForm {
+      width: 100%;
+    }
+    .FormStyles {
+      width: 100%;
+      margin: 10px;
+      section {
+        label {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

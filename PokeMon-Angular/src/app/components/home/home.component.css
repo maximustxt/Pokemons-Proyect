@@ -1,0 +1,145 @@
+@charset "UTF-8";
+.divContainer {
+  font-family: "Flexo-Medium", arial, sans-serif;
+}
+.divContainer p {
+  color: #919191;
+  font-family: "Roboto", arial, sans-serif;
+  font-size: 100%;
+  font-weight: 500;
+  line-height: 125%;
+  margin: 0.5em 0;
+}
+.divContainer h5 {
+  font-size: 125%;
+  line-height: 125%;
+  margin: 0.5em 0;
+}
+.divContainer a {
+  text-decoration: none;
+  color: #000;
+  font-size: 25px;
+}
+.divContainer img {
+  width: 150px;
+  height: 200px;
+  border-radius: 5px;
+}
+.divContainer .ContainerTypesDB {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+}
+.divContainer .ContainerTypesDB .DivTypes {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 10px;
+}
+.divContainer .ContainerTypes {
+  display: flex;
+}
+.divContainer .ContainerTypes .DivTypes {
+  color: #fff;
+  padding: 10px 30px;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 10px;
+}
+
+.DivCentrador {
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.divfiltros {
+  width: 30px;
+  height: 30px;
+}
+
+.divImagenDB {
+  background-color: #f2f2f2;
+  padding: 10px 35px;
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.divImagen {
+  background-color: #f2f2f2;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.ContenedorPadre {
+  display: flex;
+  flex-wrap: wrap;
+  width: 55%;
+  padding-left: 150px;
+  height: 1000%;
+  background-color: #fff;
+}
+.ContenedorPadre a {
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease-in-out;
+}
+.ContenedorPadre a:hover {
+  transform: scale(1.1); /*Es la escala o el tamaño del contenido*/
+  transition: transform 0.3s ease-in-out; /*Se crece gradualmente la imagen o el contenido con un determinado tiempo*/
+}
+
+.ContenedorAbuelo {
+  margin-top: 130px;
+  height: 1000%;
+}
+.ContenedorAbuelo .ContainerPadreDelSearchYfiltros {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ContenedorAbuelo .ContainerBusquedaFiltro {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  padding: 20px 20px;
+  margin-bottom: 70px;
+}
+.ContenedorAbuelo .ContainerBusquedaFiltro img {
+  height: 50px;
+  width: 100px;
+}
+
+.divContainer {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px 20px;
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .DivCentrador {
+    width: 100%;
+  }
+  .DivCentrador .ContenedorPadre {
+    align-items: center;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .DivCentrador .divContainer {
+    margin-right: 150px;
+  }
+}/*# sourceMappingURL=home.component.css.map */

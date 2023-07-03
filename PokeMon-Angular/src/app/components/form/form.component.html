@@ -1,0 +1,130 @@
+<div class="DivCentrador">
+  <div class="ContainerForm">
+    <ng-container>
+      <div class="divFotoPokemontitulo">
+        <h1 class="FormTitle">Inicio Sesión</h1>
+        <br />
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg"
+        />
+      </div>
+      <section
+        class="FormSection"
+        style="display: flex; justify-content: center"
+      >
+        <form
+          [formGroup]="Form"
+          data-aos="zoom-in-right"
+          (ngSubmit)="postInicioSesion($event)"
+          class="FormStyles"
+        >
+          <section class="FormFieldSection">
+            <div style="display: flex; justify-content: center">
+              <label for="Email"
+                >Email
+
+                <input
+                  formControlName="email"
+                  id="Email"
+                  placeholder="Email..."
+                />
+              </label>
+            </div>
+            <!-- Errores -->
+            <span
+              style="
+                display: flex;
+                justify-content: center;
+                color: red;
+                font-size: 15px;
+              "
+              *ngIf="Form.controls['email'].hasError('required')"
+              class="ErrorMessage"
+            >
+              El campo Email es requerido.
+            </span>
+            <span
+              style="
+                display: flex;
+                justify-content: center;
+                color: red;
+                font-size: 15px;
+              "
+              *ngIf="Form.controls['email'].errors?.['minlength']"
+              class="ErrorMessage"
+            >
+              El campo Email debe tener<br />
+              al menos
+              {{ Form.controls["email"].errors?.['minlength'].requiredLength }}
+              caracteres.
+            </span>
+            <span
+              style="
+                display: flex;
+                justify-content: center;
+                color: red;
+                font-size: 15px;
+              "
+              *ngIf="Form.controls['email'].errors?.['pattern'] && !Form.controls['email'].errors?.['minlength']"
+              class="ErrorMessage"
+            >
+              <!--Acedo y pregunto si hay algo en errors de una determinada validacion-->
+              Email Invalido.
+            </span>
+            <div style="display: flex; justify-content: center">
+              <label for="password"
+                >Password
+
+                <input
+                  style="margin-right: 48px"
+                  formControlName="password"
+                  id="password"
+                  placeholder="Password..."
+                />
+              </label>
+            </div>
+            <!-- Errores -->
+            <span
+              *ngIf="Form.controls['password'].hasError('required')"
+              class="ErrorMessage"
+              style="
+                display: flex;
+                justify-content: center;
+                color: red;
+                height: fit-content;
+                font-size: 15px;
+                margin-left: 15px;
+              "
+            >
+              El campo password es requerido.
+            </span>
+            <span
+              *ngIf="Form.controls['password'].errors?.['minlength']"
+              class="ErrorMessage"
+              style="
+                display: flex;
+                justify-content: center;
+                color: red;
+                height: fit-content;
+                font-size: 15px;
+              "
+            >
+              El campo password debe <br />
+              tener al menos
+              {{ Form.controls["password"].errors?.['minlength'].requiredLength }}
+              caracteres.
+            </span>
+          </section>
+          <br />
+          <br />
+          <div class="FormButtons">
+            <button type="submit" class="BotonSesion">Submit</button>
+            <a routerLink="/FormRegistro">
+              <button class="BotonRegistrar">¡Registrarte!</button>
+            </a>
+          </div>
+        </form>
+      </section>
+    </ng-container>
+  </div>
+</div>

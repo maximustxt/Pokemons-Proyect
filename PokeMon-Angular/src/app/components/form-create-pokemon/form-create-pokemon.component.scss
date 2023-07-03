@@ -1,0 +1,142 @@
+// variables de colores:
+$Color: #fff;
+$ColorLinks: aliceblue;
+$ColorDivImagen: #f2f2f2;
+$ColorEstadistica: #006d77;
+$ColorCaracteristicas: #30a7d7;
+
+Form {
+  -webkit-box-shadow: -1px 7px 14px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: -1px 7px 14px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: -1px 7px 14px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  width: 450px;
+  button {
+    margin: 10px;
+    padding: 10px 10px;
+    border: none;
+    color: #fff;
+    background-color: rgb(156, 156, 54);
+    border-radius: 10px;
+    width: 200px;
+  }
+  button:hover {
+    background-color: rgb(204, 204, 50);
+  }
+  .Divbuton {
+    display: flex;
+    justify-content: center;
+  }
+}
+.DivStats {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.ContainerStatsForm {
+  color: #fff;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
+  padding: 20px 20px;
+  border-radius: 10px;
+  font-family: serif;
+  width: 400px;
+  div {
+    display: flex;
+    input {
+      width: 50px;
+      padding: 0 10px;
+      border-radius: 20px;
+      background-color: $ColorEstadistica;
+      border: none;
+      height: 20px;
+      margin-bottom: 10px;
+      color: $Color;
+    }
+  }
+}
+
+.divNameInput {
+  display: flex;
+  flex-direction: column;
+  input {
+    border-radius: 10px;
+  }
+}
+
+.SectionContainerCaracter {
+  background-color: $ColorCaracteristicas;
+  width: fit-content;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  width: 100%;
+  div {
+    display: flex;
+    margin: 10px;
+    input {
+      border-radius: 5px;
+    }
+  }
+  select {
+    border-radius: 5px;
+    background-color: rgb(65, 65, 60);
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    width: 250px;
+    margin-left: 5px;
+  }
+}
+
+.DivImagen {
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerCarImage {
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerCaracter {
+  width: 90%;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerselecTypes {
+  display: flex;
+  justify-content: center;
+  .selecTypes {
+    background-color: rgb(65, 65, 60);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    width: fit-content;
+  }
+}
+
+.ContainerSelectTypes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.DivSelectTypes {
+  border: 0.5px #000 solid;
+  width: fit-content;
+  padding: 5px 5px;
+  margin: 10px;
+  .spanTypeSelect {
+    margin: 5px;
+  }
+  .LinkEliminarTypeSelect {
+    color: red;
+    cursor: pointer;
+  }
+}

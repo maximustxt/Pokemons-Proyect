@@ -1,0 +1,32 @@
+<div
+  [ngClass]="{
+    'container-filters_active': actives,
+    'container-filters': !actives
+  }"
+>
+  <div class="filter-by-type">
+    <div class="ContainerBotonX">
+      <button (click)="FuncionSeteoActives()">X</button>
+    </div>
+    <span>Tipo</span>
+    <ng-container *ngFor="let type of types; let i = index">
+      <div class="group-type">
+        <input
+          type="checkbox"
+          (change)="FiltrosTypesPokemon($event, type.name)"
+          [name]="type.name"
+          [id]="'myCheckbox' + i"
+        />
+        <label class="checkbox-label" [for]="'myCheckbox' + i">{{
+          TransformaType(type.name)
+        }}</label>
+      </div>
+    </ng-container>
+    <select (change)="SeleccionOrdenamiento($event)" class="SelectOrder">
+      <option value="Número Inferior">Número Inferior</option>
+      <option value="Número Superior">Número Superior</option>
+      <option value="A-Z">A-Z</option>
+      <option value="Z-A">Z-A</option>
+    </select>
+  </div>
+</div>

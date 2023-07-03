@@ -1,0 +1,137 @@
+<ng-container *ngIf="DetailPoke">
+  <div class="divContainerDetail">
+    <div class="divDetail">
+      <div class="divBotonesFavoritos">
+        <button
+          data-aos="fade-right"
+          (click)="PostFavoritos(DetailPoke, DetailPoke.id)"
+          class="buttonFav"
+        >
+          <svg
+            height="32"
+            width="32"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0H24V24H0z" fill="none"></path>
+            <path
+              d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"
+            ></path>
+          </svg>
+          <ng-container *ngIf="!booleano"> Agregar Favorito </ng-container>
+          <ng-container *ngIf="booleano"> Eliminar Favorito </ng-container>
+        </button>
+      </div>
+      <div data-aos="fade-down" class="conatinerNameNumero">
+        <p>{{ PrimeraMayuscula(DetailPoke.name) }}</p>
+        <ng-container *ngIf="isApiPokemon(DetailPoke)">
+          <p>N.º {{ DetailPoke.id }}</p>
+        </ng-container>
+      </div>
+      <!--------------------------Caracteristicas------------------------------->
+      <section class="sectionCaracter">
+        <div data-aos="fade-up-right" class="DivImagenDetail">
+          <img
+            class="img"
+            [src]="DetailPoke.sprites.other.dream_world.front_default"
+          />
+        </div>
+        <div data-aos="fade-left" class="CaracteristicasPokemon">
+          <div>
+            <p>
+              <span>Altura</span> <br /><br />
+              {{ metodoAltura(DetailPoke.height) }}
+            </p>
+            <p>
+              <span>Peso</span> <br /><br />
+              {{ metodoPeso(DetailPoke.weight) }}
+            </p>
+          </div>
+          <div class="divContainerAbilitie">
+            <p>
+              <span>Specie</span> <br /><br />
+
+              {{ DetailPoke.species.name }}
+            </p>
+            <span>Habilidad</span><br />
+            <ng-container *ngFor="let abilitys of DetailPoke.abilities">
+              <p>{{ metodoHabilidad(abilitys.ability.name) }}</p>
+            </ng-container>
+          </div>
+        </div>
+      </section>
+      <!---------------------------------Typos---------------------------------------->
+      <div data-aos="fade-right" class="ContenedorTypesAll">
+        <p>Tipo:</p>
+        <br />
+        <ng-container *ngIf="isApiPokemon(DetailPoke)">
+          <ng-container *ngFor="let typesx of DetailPoke.types">
+            <div
+              class="DivTypes"
+              [ngStyle]="{
+                'background-color': CambiarColorDivTypes(typesx.type.name)
+              }"
+            >
+              {{ typesx.type.name }}
+            </div>
+          </ng-container>
+        </ng-container>
+        <!-------------------------Typo en bases de datos--------------------------->
+        <ng-container *ngIf="isDBPokemon(DetailPoke)">
+          <ng-container *ngFor="let typesx of FuncioPokemonDB(DetailPoke)">
+            <div
+              class="DivTypes"
+              [ngStyle]="{
+                'background-color': CambiarColorDivTypes(typesx.name)
+              }"
+            >
+              {{ typesx.name }}
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <hr />
+      <!------------------------------Estadisticas------------------------------------->
+      <section data-aos="zoom-out" class="section">
+        <h4>Puntos de base</h4>
+        <ng-container *ngFor="let stat of DetailPoke.stats">
+          <div class="ContainerEstadisticas">
+            <div class="ContainerNameEstadistica">{{ stat.stat.name }}</div>
+            <div class="estadistica">
+              {{ porcentajeEstadistica(stat.base_stat) }}
+            </div>
+          </div>
+        </ng-container>
+      </section>
+      <ng-container *ngIf="isApiPokemon(DetailPoke)">
+        <hr />
+      </ng-container>
+      <!---------------------------------Imagenes-------------------------------------->
+      <div class="DivImagenesPokemon">
+        <ng-container *ngIf="DetailPoke.sprites.front_default.length">
+          <div data-aos="fade-right">
+            <img [src]="DetailPoke.sprites.front_default" />
+          </div>
+        </ng-container>
+        <ng-container *ngIf="DetailPoke.sprites.back_default.length">
+          <div data-aos="zoom-in">
+            <img [src]="DetailPoke.sprites.back_default" />
+          </div>
+        </ng-container>
+        <ng-container *ngIf="DetailPoke.sprites.front_shiny.length">
+          <div data-aos="zoom-in">
+            <img [src]="DetailPoke.sprites.front_shiny" />
+          </div>
+        </ng-container>
+        <ng-container *ngIf="DetailPoke.sprites.back_shiny.length">
+          <div data-aos="fade-left">
+            <img [src]="DetailPoke.sprites.back_shiny" />
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!DetailPoke">
+  <h1>LOADING...</h1>
+</ng-container>

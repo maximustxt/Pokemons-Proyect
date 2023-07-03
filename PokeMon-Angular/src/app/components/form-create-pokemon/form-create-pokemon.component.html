@@ -1,0 +1,378 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+  "
+>
+  <form>
+    <!-- Name -->
+    <div data-aos="fade-right" class="divNameInput">
+      <label style="text-align: center" for="name">Name </label>
+      <div style="display: flex; justify-content: center">
+        <input
+          style="margin: 10px; padding: 5px 10px; width: 200px"
+          [(ngModel)]="pokemon.name"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Ingresar un nombre.."
+          required
+        />
+      </div>
+      <!------------------------ERRORES----------------------------->
+      <span
+        style="text-align: center; color: red; font-size: 12px"
+        *ngIf="!pokemon.name.length"
+      >
+        Campo Requerido
+      </span>
+      <!------------------------------------------------------------>
+    </div>
+
+    <div data-aos="fade-down" class="ContainerCarImage">
+      <!-- Sprites IMAGENES -->
+      <ngx-dropzone
+        style="width: 100%; padding: 20px 20px; margin: 10px"
+        (change)="onSelect($event)"
+      >
+        <ngx-dropzone-label>Ingresar una Imagen aqui!</ngx-dropzone-label>
+        <ngx-dropzone-image-preview
+          ngProjectAs="ngx-dropzone-preview"
+          *ngFor="let f of files"
+          [file]="f"
+          [removable]="true"
+          (removed)="onRemove(f)"
+          style="width: 250px"
+          style="transform: scale(1.2)"
+        >
+          <!-- <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label> -->
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+    </div>
+    <div data-aos="fade-left" class="ContainerCaracter">
+      <!-- Height -->
+      <section class="SectionContainerCaracter">
+        <div style="display: flex; flex-direction: column">
+          <label style="text-align: center" for="height">Height: </label>
+          <div style="display: flex; justify-content: center">
+            <input
+              placeholder="Ingresar una altura."
+              style="margin: 10px; width: 200px"
+              [(ngModel)]="pokemon.height"
+              type="number"
+              id="height"
+              name="height"
+              required
+            />
+          </div>
+          <!------------------------ERRORES----------------------------->
+          <span
+            style="color: red; font-size: 12px; text-align: center"
+            *ngIf="!pokemon.height"
+          >
+            Campo Requerido
+          </span>
+          <!------------------------------------------------------------>
+        </div>
+
+        <!-- Weight -->
+        <div style="display: flex; flex-direction: column">
+          <label style="text-align: center" for="weight">Weight: </label>
+          <div style="display: flex; justify-content: center">
+            <input
+              placeholder="Ingresar un peso."
+              style="margin: 10px; width: 200px"
+              [(ngModel)]="pokemon.weight"
+              type="number"
+              id="weight"
+              name="weight"
+              required
+            />
+          </div>
+          <!------------------------ERRORES----------------------------->
+          <span
+            style="color: red; font-size: 12px; text-align: center"
+            *ngIf="!pokemon.weight"
+          >
+            Campo Requerido
+          </span>
+          <!------------------------------------------------------------>
+        </div>
+
+        <!-- Abilities -->
+        <div style="display: flex; flex-direction: column">
+          <label style="text-align: center">Abilities:</label>
+          <div style="display: flex; justify-content: center">
+            <select (click)="FuncionSelectAbilitie($event)">
+              <option hidden>Seleccionar una Habilidad</option>
+              <ng-container *ngFor="let Abilitie of AbilitiesPokemon">
+                <option [value]="Abilitie.name">{{ Abilitie.name }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <!-------------------------------------->
+        <div class="ContainerSelectTypes">
+          <ng-container *ngFor="let Abilitie of seleccionAbilities">
+            <div class="DivSelectTypes">
+              <span class="spanTypeSelect">{{ Abilitie }}</span>
+              <a
+                class="LinkEliminarTypeSelect"
+                (click)="FuncionDeleteAbilitieSelect(Abilitie)"
+                >X</a
+              >
+            </div>
+          </ng-container>
+        </div>
+        <!-- Species -->
+        <div style="display: flex; flex-direction: column">
+          <label style="text-align: center" for="species">Species: </label>
+          <div style="display: flex; justify-content: center">
+            <input
+              placeholder="Ingresar una especie."
+              style="margin: 10px; width: 200px"
+              [(ngModel)]="pokemon.species.name"
+              type="text"
+              id="species"
+              name="species"
+              required
+            />
+          </div>
+          <!------------------------ERRORES----------------------------->
+          <span
+            style="color: red; font-size: 12px; text-align: center"
+            *ngIf="!pokemon.species.name.length"
+          >
+            Campo Requerido
+          </span>
+          <!------------------------------------------------------------>
+        </div>
+      </section>
+    </div>
+    <!-- Types -->
+    <div data-aos="fade-right" class="ContainerselecTypes">
+      <select
+        class="selecTypes"
+        (click)="FuncionSeteotypes($event)"
+        name="types"
+      >
+        <option hidden>Seleccionar Typos</option>
+        <ng-container *ngFor="let types of SelectTypes">
+          <option [value]="types.id">{{ types.name }}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="ContainerSelectTypes">
+      <ng-container *ngFor="let type of seleccionTipos">
+        <div class="DivSelectTypes">
+          <span class="spanTypeSelect">{{ type.name }}</span>
+          <a
+            class="LinkEliminarTypeSelect"
+            (click)="FuncionDeleteTypeSelect(type.id)"
+            >X</a
+          >
+        </div>
+      </ng-container>
+    </div>
+    <!-- Stats -->
+    <div data-aos="fade-up-right" class="DivStats">
+      <div class="ContainerStatsForm">
+        <h1>STATS:</h1>
+        <div>
+          <label for="stats">HP</label>
+          <input
+            style="margin: 10px"
+            type="number"
+            (change)="FuncionStatHP($event)"
+            name="base_stat"
+            required
+          />
+          <!------------------------ERRORES----------------------------->
+          <ng-container *ngFor="let statx of pokemon.stats">
+            <p
+              style="color: red"
+              *ngIf="statx.stat.name === 'hp' && !statx.base_stat"
+            >
+              Campo Requerido
+            </p>
+            <p
+              style="color: red"
+              *ngIf="
+                statx.stat.name === 'hp' &&
+                statx.base_stat <= 0 &&
+                statx.base_stat
+              "
+            >
+              El numero no debe ser negativo
+            </p>
+          </ng-container>
+          <!------------------------------------------------------------>
+        </div>
+        <!--------------------------------------->
+        <div>
+          <label for="stats">attack</label>
+          <input
+            style="margin: 10px"
+            type="number"
+            (change)="FuncionStatAttack($event)"
+            name="base_stat"
+            required
+          />
+          <!------------------------ERRORES----------------------------->
+          <ng-container *ngFor="let statx of pokemon.stats">
+            <p
+              style="color: red"
+              *ngIf="statx.stat.name === 'attack' && !statx.base_stat"
+            >
+              Campo Requerido
+            </p>
+            <p
+              style="color: red"
+              *ngIf="
+                statx.stat.name === 'attack' &&
+                statx.base_stat <= 0 &&
+                statx.base_stat
+              "
+            >
+              El numero no debe ser negativo
+            </p>
+          </ng-container>
+          <!------------------------------------------------------------>
+        </div>
+        <!--------------------------------------->
+        <div>
+          <label for="stats">special-attack</label>
+          <input
+            style="margin: 10px"
+            type="number"
+            (change)="FuncionStatspecialAttack($event)"
+            name="base_stat"
+            required
+          />
+          <!------------------------ERRORES----------------------------->
+          <ng-container *ngFor="let statx of pokemon.stats">
+            <p
+              style="color: red"
+              *ngIf="statx.stat.name === 'special-attack' && !statx.base_stat"
+            >
+              Campo Requerido
+            </p>
+            <p
+              style="color: red"
+              *ngIf="
+                statx.stat.name === 'special-attack' &&
+                statx.base_stat <= 0 &&
+                statx.base_stat
+              "
+            >
+              El numero no debe ser negativo
+            </p>
+          </ng-container>
+          <!------------------------------------------------------------>
+        </div>
+        <!--------------------------------------->
+        <div>
+          <label for="stats">special-defense</label>
+          <input
+            style="margin: 10px"
+            type="number"
+            (change)="FuncionStatspecialDefense($event)"
+            name="base_stat"
+            required
+          />
+          <!------------------------ERRORES----------------------------->
+          <ng-container *ngFor="let statx of pokemon.stats">
+            <p
+              style="color: red"
+              *ngIf="statx.stat.name === 'special-defense' && !statx.base_stat"
+            >
+              Campo Requerido
+            </p>
+            <p
+              style="color: red"
+              *ngIf="
+                statx.stat.name === 'special-defense' &&
+                statx.base_stat <= 0 &&
+                statx.base_stat
+              "
+            >
+              El numero no debe ser negativo
+            </p>
+          </ng-container>
+          <!------------------------------------------------------------>
+        </div>
+        <!--------------------------------------->
+        <div>
+          <label for="stats">defense</label>
+          <input
+            style="margin: 10px"
+            type="number"
+            (change)="FuncionStatsDefense($event)"
+            name="base_stat"
+            required
+          />
+          <!------------------------ERRORES----------------------------->
+          <ng-container *ngFor="let statx of pokemon.stats">
+            <p
+              style="color: red"
+              *ngIf="statx.stat.name === 'defense' && !statx.base_stat"
+            >
+              Campo Requerido
+            </p>
+            <p
+              style="color: red"
+              *ngIf="
+                statx.stat.name === 'defense' &&
+                statx.base_stat <= 0 &&
+                statx.base_stat
+              "
+            >
+              El numero no debe ser negativo
+            </p>
+          </ng-container>
+          <!------------------------------------------------------------>
+        </div>
+        <!--------------------------------------->
+        <div>
+          <label for="stats">speed</label>
+          <input
+            style="margin: 10px"
+            type="number"
+            (change)="FuncionStatSpeed($event)"
+            name="base_stat"
+            required
+          />
+          <!------------------------ERRORES----------------------------->
+          <ng-container *ngFor="let statx of pokemon.stats">
+            <p
+              style="color: red"
+              *ngIf="statx.stat.name === 'speed' && !statx.base_stat"
+            >
+              Campo Requerido
+            </p>
+            <p
+              style="color: red"
+              *ngIf="
+                statx.stat.name === 'speed' &&
+                statx.base_stat <= 0 &&
+                statx.base_stat
+              "
+            >
+              El numero no debe ser negativo
+            </p>
+          </ng-container>
+          <!------------------------------------------------------------>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boton Crear Pokemon -->
+    <div class="Divbuton">
+      <button (click)="CrearPokemon($event)" type="submit">Submit</button>
+    </div>
+  </form>
+  <!--<pre>{{ pokemon | json }}</pre>-->
+</div>
+<!--SUPER IMPORTANTE AL UTILIZAR NGMODEL HAY QUE ESPECIFICAR EL ATRIBUTO NAME EN CADA INPUT PARA QUE FUNCIONE.-->

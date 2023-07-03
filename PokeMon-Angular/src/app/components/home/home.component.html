@@ -1,0 +1,105 @@
+<!--
+(PokemonsDB)="RecivbirArrayDB($event)" -->
+<div class="ContenedorAbuelo">
+  <ng-template [ngIf]="pokemons.length">
+    <app-search
+      [actives]="actives"
+      [name]="name"
+      [pokemons]="pokemons"
+      (Pokemonss)="RecibirEmicionDeSearch($event)"
+      (activesFiltro)="RecibirAtiveFiltro($event)"
+    ></app-search>
+  </ng-template>
+
+  <!----------------------------------------Cards---Pokemons------------------------------------------------>
+  <div class="DivCentrador">
+    <ng-template [ngIf]="pokemons.length">
+      <app-filtros
+        [actives]="actives"
+        [pokemons]="pokemons"
+        (envioActivesHome)="ReciboActivesDeFiltros($event)"
+        (EnvioArrayPokemonModificado)="MetodoArrayPokemonModificado($event)"
+      />
+    </ng-template>
+    <div class="ContenedorPadre">
+      <!------------------------Pokemon Api------------------------>
+      <ng-container *ngFor="let pokemon of pokemons; let i = index">
+        <ng-container *ngIf="isApiPokemon(pokemon)">
+          <!-- Renderizar elementos para los pokémon de la API -->
+          <a [routerLink]="['../Detail', pokemon.id]">
+            <div class="divContainer">
+              <ng-container *ngIf="pokemon">
+                <div data-aos="fade-down" class="divImagen">
+                  <img
+                    class="img"
+                    [src]="pokemon.sprites.other.dream_world.front_default"
+                  />
+                </div>
+                <p>N.º {{ pokemon.id }}</p>
+                <h5>
+                  {{ transformName(pokemon.name) }}
+                </h5>
+                <div class="ContainerTypes">
+                  <ng-container *ngFor="let typesx of FuncionTypes(pokemon)">
+                    <div
+                      class="DivTypes"
+                      [ngStyle]="{
+                        'background-color': getBackgroundColor(typesx.type.name)
+                      }"
+                    >
+                      {{ typesx.type.name }}
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </div>
+          </a>
+        </ng-container>
+        <!----------------------------------Pokemon DB-------------------------------------->
+        <ng-container *ngIf="isDBPokemon(pokemon)">
+          <!-- Renderizar elementos para los pokémon de la base de datos -->
+          <a [routerLink]="['../Detail', pokemon.id]">
+            <div class="divContainer">
+              <ng-container *ngIf="pokemon">
+                <div data-aos="fade-down" class="divImagenDB">
+                  <img
+                    class="img"
+                    [src]="pokemon.sprites.other.dream_world.front_default"
+                  />
+                </div>
+                <p>Pokémon Creado</p>
+                <h5>
+                  {{ transformName(pokemon.name) }}
+                </h5>
+                <div class="ContainerTypesDB">
+                  <ng-container *ngFor="let type of FuncioPokemonDB(pokemon)">
+                    <div
+                      class="DivTypes"
+                      [ngStyle]="{
+                        'background-color': getBackgroundColor(type.name)
+                      }"
+                    >
+                      {{ type.name }}
+                    </div>
+                  </ng-container>
+                  <!-- <ng-container *ngFor="let typesx of pokemon.types">
+                  </ng-container> -->
+                </div>
+              </ng-container>
+            </div>
+          </a>
+        </ng-container>
+      </ng-container>
+      <!------------------------------------------------------------------------------------------------>
+      <ng-container *ngIf="!pokemons.length">
+        <h1 style="background-color: black">LOADING...</h1>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- [ngStyle]="{
+  'background-color': getBackgroundColorDB(
+    typesx.type.name
+  )
+}" -->

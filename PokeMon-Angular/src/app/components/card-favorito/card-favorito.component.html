@@ -1,0 +1,144 @@
+<br />
+<br />
+<br />
+<h1 style="text-align: center">
+  Hola {{ NameUser }} 👋👋 , estos son Tus Favoritos!!
+</h1>
+<div style="text-align: center" class="ContenedorAbuelo">
+  <!----------------------------------------Cards---Pokemons------------------------------------------------>
+  <ng-container *ngIf="Favoritos.length > 0">
+    <div class="DivCentrador">
+      <div class="ContenedorPadre">
+        <ng-container *ngFor="let pokemon of Favoritos; let i = index">
+          <ng-container *ngIf="isApiPokemon(pokemon)">
+            <a [routerLink]="['../Detail', pokemon.id]">
+              <div class="divContainer">
+                <ng-container *ngIf="pokemon">
+                  <div data-aos="fade-down" class="divImagen">
+                    <img
+                      class="img"
+                      [src]="pokemon.sprites.other.dream_world.front_default"
+                    />
+                  </div>
+                  <p style="text-align: start">N.º {{ pokemon.id }}</p>
+                  <h5 style="text-align: start">
+                    {{ transformName(pokemon.name) }}
+                  </h5>
+                  <div class="ContainerTypes">
+                    <ng-container *ngFor="let typesx of FuncionTypes(pokemon)">
+                      <div
+                        class="DivTypes"
+                        [ngStyle]="{
+                          'background-color': getBackgroundColor(
+                            typesx.type.name
+                          )
+                        }"
+                      >
+                        {{ typesx.type.name }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </a>
+          </ng-container>
+          <!----------------------------------------Base De Datos------------------------------------------------>
+          <ng-container *ngIf="isDBPokemon(pokemon)">
+            <a [routerLink]="['../Detail', pokemon.id]">
+              <div class="divContainer">
+                <ng-container *ngIf="pokemon">
+                  <div data-aos="fade-down" class="divImagenDB">
+                    <img
+                      class="img"
+                      [src]="pokemon.sprites.other.dream_world.front_default"
+                    />
+                  </div>
+                  <p style="text-align: start">Pokémon Creado</p>
+                  <h5 style="text-align: start">
+                    {{ transformName(pokemon.name) }}
+                  </h5>
+                  <div class="ContainerTypesDB">
+                    <ng-container *ngFor="let typesx of FuncionTypes(pokemon)">
+                      <div
+                        class="DivTypes"
+                        [ngStyle]="{
+                          'background-color': getBackgroundColor(
+                            typesx.type.name
+                          )
+                        }"
+                      >
+                        {{ typesx.type.name }}
+                      </div>
+                    </ng-container>
+                    <!-- <ng-container
+                      *ngFor="let typesx of FuncionTypesUser(pokemon)"
+                    >
+                      <div
+                        class="DivTypes"
+                        [ngStyle]="{
+                          'background-color': getBackgroundColor(typesx.name)
+                        }"
+                      >
+                        {{ typesx.name }}
+                      </div>
+                    </ng-container> -->
+                  </div>
+                </ng-container>
+              </div>
+            </a>
+          </ng-container>
+          <ng-container *ngIf="!pokemon">
+            <h1>LOADING...</h1>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<!----------------------------------------------Pokemons Creados--------------------------------------------------------------->
+<h1 style="text-align: center">POKEMONS CREADOS</h1>
+<main
+  class="main"
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  "
+>
+  <section class="SectionPokemonsCreados">
+    <!------------------------------->
+    <ng-container *ngFor="let poke of Pokemons">
+      <ng-container *ngIf="isDBPokemon(poke)">
+        <a [routerLink]="['../Detail', poke.id]">
+          <div class="divContainer">
+            <ng-container *ngIf="poke">
+              <div data-aos="fade-down" class="divImagenDB">
+                <img
+                  class="img"
+                  [src]="poke.sprites.other.dream_world.front_default"
+                />
+              </div>
+              <p style="text-align: start">Pokémon Creado</p>
+              <h5 style="text-align: start">
+                {{ transformName(poke.name) }}
+              </h5>
+              <div class="ContainerTypesDB">
+                <ng-container *ngFor="let typesx of FuncionTypesUser(poke)">
+                  <div
+                    class="DivTypes"
+                    [ngStyle]="{
+                      'background-color': getBackgroundColor(typesx.name)
+                    }"
+                  >
+                    {{ typesx.name }}
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </a>
+      </ng-container>
+    </ng-container>
+  </section>
+</main>

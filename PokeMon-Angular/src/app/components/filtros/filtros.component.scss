@@ -1,0 +1,137 @@
+$ColorWhite: #ffff;
+$ColorBlack: rgb(36, 36, 34);
+$ColorGray: rgb(90, 88, 88);
+
+/* Container Filters */
+.container-filters {
+  font-size: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 250px;
+  color: $ColorWhite;
+  background-color: $ColorBlack;
+  height: 100%;
+  padding-top: 140px;
+  z-index: 50; // lo que hace es que las imagenes o datos no sobrepasen este div...
+  transition: all 0.5s ease-in-out;
+}
+
+.container-filters_active {
+  font-size: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 250px;
+  color: $ColorWhite;
+  background-color: $ColorBlack;
+  z-index: 50; // lo que hace es que las imagenes o datos no sobrepasen este div...
+  height: 100%;
+  padding-top: 140px;
+  transition: all 0.5s ease-in-out;
+  right: 0px;
+}
+
+.filter-by-type {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-by-type span {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.group-type {
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.group-type {
+  font-size: 100%;
+  /* Oculta los checkboxes por defecto */
+  input[type="checkbox"] {
+    display: none;
+  }
+  /*
+    Estilo
+    personalizado
+    para
+    los
+    checkboxes
+    */
+  label.checkbox-label::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 2px solid #d35400;
+    border-radius: 3px;
+    padding-bottom: 2px;
+    background-color: transparent;
+  }
+
+  /* Estilo personalizado para la marca de verificación */
+  input[type="checkbox"]:checked + label.checkbox-label::before {
+    content: "✔";
+    font-size: 13px;
+    text-align: center;
+    color: #d35400;
+  }
+
+  /* Estilo personalizado para mostrar la marca de verificación en los checkboxes seleccionados */
+  // input[type="checkbox"]:checked + label.checkbox-label::after {
+  //   opacity: 5;
+  // }
+}
+
+.SelectOrder {
+  font-size: 15px;
+  background-color: $ColorBlack;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: $ColorWhite;
+  option {
+    background-color: $ColorGray;
+    font-family: "Darumadrop One", cursive;
+  }
+  option:hover {
+    background-color: $ColorBlack;
+  }
+}
+
+.ContainerBotonX {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #ffff;
+    cursor: pointer;
+  }
+  button:hover {
+    color: #d35400;
+  }
+}
+
+// @media (max-width: 800px) {
+//   .container-filters {
+//     position: fixed;
+//     top: 0;
+//     right: -300;
+//   }
+
+//   .container-filters_active {
+//     position: fixed;
+//     top: 0;
+//     bottom: 0;
+//   }
+// }

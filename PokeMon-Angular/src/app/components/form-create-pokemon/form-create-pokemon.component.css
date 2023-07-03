@@ -1,0 +1,138 @@
+Form {
+  box-shadow: -1px 7px 14px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  width: 450px;
+}
+Form button {
+  margin: 10px;
+  padding: 10px 10px;
+  border: none;
+  color: #fff;
+  background-color: rgb(156, 156, 54);
+  border-radius: 10px;
+  width: 200px;
+}
+Form button:hover {
+  background-color: rgb(204, 204, 50);
+}
+Form .Divbuton {
+  display: flex;
+  justify-content: center;
+}
+
+.DivStats {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.ContainerStatsForm {
+  color: #fff;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
+  padding: 20px 20px;
+  border-radius: 10px;
+  font-family: serif;
+  width: 400px;
+}
+.ContainerStatsForm div {
+  display: flex;
+}
+.ContainerStatsForm div input {
+  width: 50px;
+  padding: 0 10px;
+  border-radius: 20px;
+  background-color: #006d77;
+  border: none;
+  height: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.divNameInput {
+  display: flex;
+  flex-direction: column;
+}
+.divNameInput input {
+  border-radius: 10px;
+}
+
+.SectionContainerCaracter {
+  background-color: #30a7d7;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  width: 100%;
+}
+.SectionContainerCaracter div {
+  display: flex;
+  margin: 10px;
+}
+.SectionContainerCaracter div input {
+  border-radius: 5px;
+}
+.SectionContainerCaracter select {
+  border-radius: 5px;
+  background-color: rgb(65, 65, 60);
+  color: #fff;
+  padding: 5px 5px;
+  border: none;
+  width: 250px;
+  margin-left: 5px;
+}
+
+.DivImagen {
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerCarImage {
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerCaracter {
+  width: 90%;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerselecTypes {
+  display: flex;
+  justify-content: center;
+}
+.ContainerselecTypes .selecTypes {
+  background-color: rgb(65, 65, 60);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.ContainerSelectTypes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.DivSelectTypes {
+  border: 0.5px #000 solid;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.DivSelectTypes .spanTypeSelect {
+  margin: 5px;
+}
+.DivSelectTypes .LinkEliminarTypeSelect {
+  color: red;
+  cursor: pointer;
+}/*# sourceMappingURL=form-create-pokemon.component.css.map */
