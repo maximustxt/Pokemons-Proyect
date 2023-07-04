@@ -7,7 +7,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_DIALECT, BDD, DB_DEPLOY } =
 // Comprueba si DB_DEPLOY está definido y úsalo en consecuencia
 const databaseURL = DB_DEPLOY
   ? DB_DEPLOY
-  : "postgres://db_pokemons_xmjt_user:1w0NnFMuSiWQJj9vPM6u0m9w6BvmhvkN@dpg-cii2l22ip7vpelpogs6g-a.oregon-postgres.render.com/db_pokemons_xmjt "; // Puedes proporcionar un valor predeterminado en caso de que DB_DEPLOY sea undefined
+  : "postgres://db_deploy_z5j3_user:D2zR2A65ePTesxJKoTTPYw7cjh9OdsPL@dpg-cii2u75gkuvojje9ks40-a.oregon-postgres.render.com/db_deploy_z5j3"; // Puedes proporcionar un valor predeterminado en caso de que DB_DEPLOY sea undefined
 
 // Configura las opciones de conexión a la base de datos
 const dbOptions = {
